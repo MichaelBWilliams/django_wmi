@@ -19,11 +19,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 
-from maps.views import HomeView
+from maps.views import HomeView, AboutView, ContactView, DownloadView, ViewerView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
+    url(r'^about/', AboutView.as_view()),
+    url(r'^contact/', ContactView.as_view()),
+    url(r'^download/', DownloadView.as_view()),
+    url(r'^viewer/', ViewerView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
 ]
 

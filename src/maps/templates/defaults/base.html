@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+<html lang="en">
+  <head>
+    {% include 'defaults/head.html' %}
+  </head>
+
+  <body>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="{% if request.path == '/' %}active{% endif %}"><a href="/">Home</a></li>
+          <li class="{% if 'about' in request.path %}active{% endif %}"><a href="/about">About</a></li>
+          <li class="{% if 'contact' in request.path %}active{% endif %}"><a href="/contact">Contact</a></li>
+          <li class="{% if 'downloads' in request.path %}active{% endif %}"><a href="/download">Map Downloads</a></li>
+          <li class="{% if 'viewer' in request.path %}active{% endif %}"><a href="/viewer">Map Viewer</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><p>Hello {{user}}!</p></li>
+          <li><a href="accounts/logout/">Logout</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  {% block content %}
+  
+  {% endblock %}
+
+  {% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+  {% block bootstrap3_extra_script %}{% endblock %}
+</body>
+
+</html>
