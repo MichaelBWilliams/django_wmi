@@ -17,4 +17,307 @@ ul.navbar-header a {
     line-height:50px;    
 }
 
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 1;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: rgba(247,247,247,1);
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: left;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block; 
+}
+
+/*Additional content */
+
+.region {
+  padding-left: 15px;
+  font-weight: 600;
+  font-size: 1.2em;
+  }
+
+.go-to li {
+  display: inline-block;
+  }
+.goto {
+  padding-left: 20px;
+  }
+.bold {
+  font-weight: 500;
+}
+.overview {
+  padding-top: 30px;
+  
+  
+}
+.overview h1{
+  margin-bottom: 40px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+.overview p {
+  font-size: 1.2em;
+}
+.how-to {
+  display: inline-block;
+}
+
+/* Fixes issue of fixed navbar covering content --> http://stackoverflow.com/questions/23581161/how-to-control-the-anchor-landing-position */
+.anchor{
+  display: block;
+  height: 50px; /*same height as header*/
+  margin-top: -50px; /*same height as header*/
+  visibility: hidden;
+}
+.theme-row {
+  margin-top: 30px;
+}
+
+.themes h3 {
+  padding-bottom: px;
+  padding-top: px;
+}
+
+.second-themes {
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  align-content: center;
+}
+
+.second-themes p {
+  padding-top: 15px;
+}
+
+.thumbnail {
+  width: 400px;
+  margin: 0px auto;
+  position: relative;
+}
+
+/* Hover effects directly from https://miketricking.github.io/dist/ */
+
+.hovereffect {
+  max-width: 297px;
+  max-height: 210px;
+  margin-bottom: 10px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  border: 2px solid #eee;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.hovereffect:hover .overlay {
+  background-color: rgba(170,170,170,0.4);
+}
+
+.hovereffect h2, .hovereffect img {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.hovereffect:hover img {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect h4 {
+
+  color: #fff;
+  text-align: center;
+  position: relative;
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  /*padding: 7px 14px;*/
+  font-size: 1.3em;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 0px 0 0 0;
+  background-color: transparent;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  font-weight: normal;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  padding: 90px 10px 10px;
+}
+
+.hovereffect:hover a.info {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* End of hover effect css code */
+
+/*Modal css */
+
+.modal .modal-body {
+  max-height: 600px;
+  overflow-y: auto;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 5px;
+}
+
+.modal-image {
+  margin-top:20px ;
+  border: 2px solid #eee;
+}
+
+.dl-header {
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+
+.dl-admin-links li {
+  display: inline-block;
+  width: 190px;
+  height: 30px;
+}
+
+.opendata p {
+  margin-left: 0px;
+  width: 90%
+}
+
+.itemlink {
+  margin-top: 20px;
+}
+
+
+
 

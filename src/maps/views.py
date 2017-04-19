@@ -28,6 +28,51 @@ class ViewerView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
     return render(request, "maps/viewer.html", {})
   
+# Start of country/MFI views
+class kenya_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/kenya.html", {})
+  
+class malawi_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/malawi.html", {})
+  
+class tanzania_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/tanzania.html", {})
+  
+class uganda_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/uganda.html", {})
+  
+class zambia_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/zambia.html", {})
+  
+class cambodia_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/cambodia.html", {})
+  
+class myanmar_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/myanmar.html", {})
+  
+class philippines_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/philippines.html", {})
+  
+class srilanka_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/srilanka.html", {})
+  
+class ecuador_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/ecuador.html", {})
+  
+class honduras_view(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/honduras.html", {})
+# End of country/MFI specific views
 
   
 

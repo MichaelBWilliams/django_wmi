@@ -19,14 +19,27 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 
-from maps.views import HomeView, AboutView, ContactView, DownloadView, ViewerView
+from maps.views import HomeView, AboutView, ContactView, DownloadView, ViewerView, kenya_view, malawi_view, tanzania_view, uganda_view, zambia_view, cambodia_view, myanmar_view, philippines_view, srilanka_view, ecuador_view, honduras_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
     url(r'^about/', AboutView.as_view()),
     url(r'^contact/', ContactView.as_view()),
-    url(r'^download/', DownloadView.as_view()),
+    url(r'^download/overview/', DownloadView.as_view()),
+  #start of MFI urls
+    url(r'^download/kenya/', kenya_view.as_view()),
+    url(r'^download/malawi/', malawi_view.as_view()),
+    url(r'^download/tanzania/', tanzania_view.as_view()),
+    url(r'^download/uganda/', uganda_view.as_view()),
+    url(r'^download/zambia/', zambia_view.as_view()),
+    url(r'^download/cambodia/', cambodia_view.as_view()),
+    url(r'^download/myanmar/', myanmar_view.as_view()),
+    url(r'^download/philippines/', philippines_view.as_view()),
+    url(r'^download/srilanka/', srilanka_view.as_view()),
+    url(r'^download/ecuador/', ecuador_view.as_view()),
+    url(r'^download/honduras/', honduras_view.as_view()),
+  #end of MFI urls
     url(r'^viewer/', ViewerView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
 ]
