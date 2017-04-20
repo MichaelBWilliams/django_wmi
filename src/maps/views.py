@@ -32,50 +32,68 @@ class ViewerView(LoginRequiredMixin, View):
   
 # Start of country/MFI views
 class kenya_view(LoginRequiredMixin, GroupRequiredMixin, View):
-
-  group_required = "KE"
+  group_required = ["KE", "VFI", "AFR"]
   raise_exception = True
-  
   def get(self, request, *args, **kwargs):
     return render(request, "maps/kenya.html", {})
   
-class malawi_view(LoginRequiredMixin, View):
+class malawi_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["MW", "VFI", "AFR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/malawi.html", {})
   
-class tanzania_view(LoginRequiredMixin, View):
+class tanzania_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["TZ", "VFI", "AFR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/tanzania.html", {})
   
-class uganda_view(LoginRequiredMixin, View):
+class uganda_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["UG", "VFI", "AFR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/uganda.html", {})
   
-class zambia_view(LoginRequiredMixin, View):
+class zambia_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["ZM", "VFI", "AFR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/zambia.html", {})
   
-class cambodia_view(LoginRequiredMixin, View):
+class cambodia_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["KH", "VFI", "ASR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/cambodia.html", {})
   
-class myanmar_view(LoginRequiredMixin, View):
+class myanmar_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["MM", "VFI", "ASR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/myanmar.html", {})
   
-class philippines_view(LoginRequiredMixin, View):
+class philippines_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["PH", "VFI", "ASR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/philippines.html", {})
   
-class srilanka_view(LoginRequiredMixin, View):
+class srilanka_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["LK", "VFI", "ASR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/srilanka.html", {})
   
-class ecuador_view(LoginRequiredMixin, View):
+class ecuador_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["EC", "VFI", "LAR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/ecuador.html", {})
   
-class honduras_view(LoginRequiredMixin, View):
+class honduras_view(LoginRequiredMixin, GroupRequiredMixin, View):
+  group_required = ["HN", "VFI", "LAR"]
+  raise_exception = True
   def get(self, request, *args, **kwargs):
     return render(request, "maps/honduras.html", {})
 # End of country/MFI specific views
