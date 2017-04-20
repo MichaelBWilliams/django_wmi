@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-  
+    'storages'
     'bootstrap3',
 
     'django.contrib.sites',
@@ -176,4 +176,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+access_key = 'AKIAJVWOXTYTPJOX6KGQ'
+secret_key = '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'
+
+AWS_ACCESS_KEY_ID = access_key
+AWS_SECRET_ACCESS_KEY = secret_key
+AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+S3_URL = '//%s.s3.amazonaws.com/' %AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = S3_URL + "media/"
+STATIC_URL = S3_URL + "static/"
+
+
+
+
+
+
+
+
+
+
+
 
