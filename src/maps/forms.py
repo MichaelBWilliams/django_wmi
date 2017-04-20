@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User, Group, Permission
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django import forms
@@ -57,6 +57,16 @@ class SignupForm(forms.ModelForm):
         user.profile.save()
         
         group = Group.objects.get(name = user.profile.organization)
+#        permissions = Permission.objects.get(name = 'KE')
+        print(group)
+#        print(type(group))
+#        user.user_permissions.set(['KE'])
+#        user.user_permissions.add(0)
+
+#        print(group.permissions)
+#        permission = Permission.objects.get(name = group)
+#        print(permission)
+#        group.permissions.set(permission)
         user.groups.add(group)
         
 

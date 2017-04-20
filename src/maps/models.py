@@ -22,6 +22,11 @@ ORGANIZATION = (
 )
 
 class Map(models.Model):
+    class Meta:
+        permissions = (
+          ("KE", "Kenya Permission"),
+        )
+    
     linkto_map = models.TextField()
   
     def __str__(self):
