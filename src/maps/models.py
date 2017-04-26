@@ -1,7 +1,17 @@
+import re, itertools
+from collections import defaultdict
+from functools import partial 
+
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver  
 from django.db import models
 from django.contrib.auth.models import User
+import boto3 
+from boto3 import client
+from django.conf import settings
+
+
 
 ORGANIZATION = (
   ('', '--Select Organization--'),
@@ -22,10 +32,10 @@ ORGANIZATION = (
 )
 
 class Map(models.Model):
-    class Meta:
-        permissions = (
-          ("KE", "Kenya Permission"),
-        )
+#    class Meta:
+#        permissions = (
+#          ("KE", "Kenya Permission"),
+#        )
     
     linkto_map = models.TextField()
   
@@ -48,3 +58,69 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
     
+class s3resource():
+    def __init__(self):
+        self.conn = boto3.client(
+            's3',
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+        )
+        self.all_list = []    
+    
+    def return_maps(self):
+        mapmatrix = self.conn.list_objects(Bucket='web-map-interface', Prefix= 'maps/')['Contents']
+        
+        path_id = []
+        for file in mapmatrix:
+            key_string = file['Key']
+            if not key_string.endswith('/'):
+                path_id.append(key_string)
+        
+        url_list = []
+        for file in mapmatrix:
+            key_string = file['Key']
+            if not key_string.endswith('/'):
+                url_string = 'https://s3-us-west-2.amazonaws.com/web-map-interface/' + key_string
+                url_list.append( url_string)
+
+        country_list = []
+        for file in mapmatrix:
+            key_string = file['Key']
+            if not key_string.endswith('/'):
+                country_list.append(re.findall(r'(\w+)', key_string)[1])
+  
+        theme_list = []
+        for file in mapmatrix:
+            key_string = file['Key']
+            if not key_string.endswith('/'):
+                theme_list.append(re.findall(r'(\w+)', key_string)[2])
+  
+        name_list = []
+        for file in mapmatrix:
+            key_string = file['Key']
+            if not key_string.endswith('/'):
+                name_list.append(re.search(r'([A-Z])\w+', key_string)[0])
+        
+        all_list = [] #combine all the lists
+        all_list.append(path_id)
+        all_list.append(country_list)
+        all_list.append(theme_list)
+        all_list.append(url_list)
+        all_list.append(name_list)
+        
+        link_list = []
+        for i in range(len(all_list[0])):
+            url_dict = {all_list[3][i]:all_list[4][i]}
+            theme_dict = {all_list[2][i]:url_dict}
+            link_list.append({all_list[1][i]:theme_dict}) 
+
+        return(link_list)
+
+    def country_filter(self, country):
+        output = []
+        link_list = self.return_maps()
+        for i in link_list:    
+          for key, value in i.items():
+            if key == country:
+              output.append(value)
+        return output

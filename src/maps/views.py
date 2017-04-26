@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from braces.views import GroupRequiredMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Map
+from .models import Map, s3resource
 
 # Create your views here.
 
@@ -34,6 +34,7 @@ class ViewerView(LoginRequiredMixin, View):
 class kenya_view(LoginRequiredMixin, GroupRequiredMixin, View):
   group_required = ["KE", "VFI", "AFR"]
   raise_exception = True
+  mapmatrix = "mapmatrixFAKE"
   def get(self, request, *args, **kwargs):
     return render(request, "maps/kenya.html", {})
   
@@ -98,5 +99,9 @@ class honduras_view(LoginRequiredMixin, GroupRequiredMixin, View):
     return render(request, "maps/honduras.html", {})
 # End of country/MFI specific views
 
-  
+class test(LoginRequiredMixin, s3resource, View):
+  def get(self, request, *args, **kwargs):
+    COUNTRY = 'kenya'
+    country_list = s3resource.country_filter(self, COUNTRY)
+    return render(request, "maps/test.html", {'country_list' : country_list})
 

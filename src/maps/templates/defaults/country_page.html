@@ -34,6 +34,7 @@
 </div>
 
 <!-- Modal Land Cover-->
+{% with "landcover" as theme %}
 <div id="landcover" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
@@ -50,7 +51,7 @@
             </div>
           <div class="col-sm-8">
             <h3>About</h3>
-            <p>Placeholder text about the landcover map atlas, download options for the atlas, and links for external data sources.</p>
+            <p>{{name}} {{theme}} {{mapmatrix}}   Placeholder text about the landcover map atlas, download options for the atlas, and links for external data sources.</p>
             <div class="alert alert-warning">
               <strong>Warning!</strong> Entire Atlas files are very large (>15mb). For smaller download size, administrative units can be downloaded individually below. 
             </div>
@@ -63,14 +64,9 @@
             <h3>Download PDF by Administrative Unit (Provinces)</h3>
           </div>
           <ul class="dl-admin-links">
-            <li><a href="#" download>Central</a></li>
-            <li><a href="#" download>Coast</a></li>
-            <li><a href="#" download>Eastern</a></li>
-            <li><a href="#" download>Nairobi</a></li>
-            <li><a href="#" download>North Eastern</a></li>
-            <li><a href="#" download>Nyanza</a></li>
-            <li><a href="#" download>Rift Valley</a></li>
-            <li><a href="#" download>Western</a></li>
+            {% for map in mapmatrix %}
+            <li><a href="{{ map }}" download>{{ map }}</a></li>
+            {% endfor %}
           </ul>
         </div>
         <div class="row col-sm-12">
@@ -122,6 +118,8 @@
 
   </div>
 </div>
+
+{% endwith %}
 
 <!-- End of Land Cover Modal -->
 
