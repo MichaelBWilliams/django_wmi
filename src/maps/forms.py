@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User, Group, Permission
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django import forms
@@ -28,17 +28,10 @@ ORGANIZATION = (
 
 class email_adapter(DefaultAccountAdapter):
     def clean_email(self, email):
-        domain = email.split('@')[1].lower()
-        
+        domain = email.split('@')[1].lower()     
         allowed_emails = ['wvi.org', 'vfi.org', 'gmail.com']
-        
         if domain not in allowed_emails:
-            raise forms.ValidationError("You have forgotten about Fred!")
-            print('not right email')
-#        for i in settings.AllOWED_DOMAIN:
-#            if i not in email:
-#                print('kdfdfhdfhj')
-#        print(settings.ALLOWED_DOMAIN)
+            raise forms.ValidationError("You must use a WorldVision or VisionFund email address")
         return email
 
 class SignupForm(forms.ModelForm):
@@ -64,6 +57,16 @@ class SignupForm(forms.ModelForm):
         user.profile.save()
         
         group = Group.objects.get(name = user.profile.organization)
+#        permissions = Permission.objects.get(name = 'KE')
+        print(group)
+#        print(type(group))
+#        user.user_permissions.set(['KE'])
+#        user.user_permissions.add(0)
+
+#        print(group.permissions)
+#        permission = Permission.objects.get(name = group)
+#        print(permission)
+#        group.permissions.set(permission)
         user.groups.add(group)
         
 

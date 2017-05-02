@@ -1,0 +1,17 @@
+
+{% extends 'defaults/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    {% include 'defaults/sidebar.html' %}
+    {% with "kenya" as name %}
+    
+    {% include 'defaults/country_page.html' %}
+    
+    {% endwith %}
+    
+  </div>
+</div>
+
+{% endblock %}
