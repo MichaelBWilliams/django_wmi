@@ -6,7 +6,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Map, s3resource
 
 # Create your views here.
-
+class TestView(View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/test.html", {})
 
 class HomeView(LoginRequiredMixin, View):
   login_url = '/accounts/login/'
