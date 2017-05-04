@@ -19,15 +19,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 
-from maps.views import HomeView, AboutView, ContactView, DownloadView, ViewerView, kenya_view, malawi_view, tanzania_view, uganda_view, zambia_view, cambodia_view, myanmar_view, philippines_view, srilanka_view, ecuador_view, honduras_view, test
+from maps.views import TestView, HomeView, AboutView, ContactView, DownloadView, ViewerView, kenya_view, malawi_view, tanzania_view, uganda_view, zambia_view, cambodia_view, myanmar_view, philippines_view, srilanka_view, ecuador_view, honduras_view
 
 urlpatterns = [
+    url(r'^test/', TestView.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
     url(r'^about/', AboutView.as_view()),
     url(r'^contact/', ContactView.as_view()),
     url(r'^download/overview/', DownloadView.as_view()),
-    url(r'^download/test/', test.as_view()),
   #start of MFI urls
     url(r'^download/kenya/', kenya_view.as_view()),
     url(r'^download/malawi/', malawi_view.as_view()),
