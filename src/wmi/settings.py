@@ -95,7 +95,7 @@ LOGIN_REDIRECT_URL = "/"
 
 ACCOUNT_ADAPTER = 'maps.forms.email_adapter'
 
-ALLOWED_DOMAIN = 'wvi.org', 'vfi.org', 'gmail.com'
+ALLOWED_DOMAIN = 'globalparametrics.com', 'wvi.org', 'vfi.org', 'gmail.com'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
@@ -190,12 +190,12 @@ AWS_ACCESS_KEY_ID = access_key
 AWS_SECRET_ACCESS_KEY = secret_key
 AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
 
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #media uploads
 S3_URL = '//%s.s3.amazonaws.com/' %AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = S3_URL + "media/"
-#STATIC_URL = S3_URL + "static/"
-#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_URL = S3_URL + "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 
 
