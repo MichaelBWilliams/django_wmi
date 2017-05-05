@@ -1,11 +1,18 @@
 {% extends 'defaults/base.html' %}
 {% block content %}
-
 <div class="container-fluid">
   <div class="row">
-        {% include 'defaults/sidebar.html' %}
-    <h1>Sri Lanka</h1>   
+    {% include 'defaults/sidebar.html' %}
+      {% with "srilanka" as name %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><span class="glyphicon glyphicon-download-alt"></span>&nbsp {{ name|capfirst}} Map Catalog</h1>
+          <div class="col-sm-12 placeholder">
+            {% include 'defaults/modal_landcover.html' %}
+            {% include 'defaults/modal_cropland.html' %}
+            {% include 'defaults/modal_branchdist.html' %}
+          </div>
+        </div>
+      {% endwith %}
   </div>
 </div>
-
 {% endblock %}

@@ -16,7 +16,6 @@ ul.navbar-header a {
     padding:0 15px;
     line-height:50px;    
 }
-
 /*
  * Base structure
  */
@@ -53,6 +52,7 @@ body {
   display: none;
 }
 @media (min-width: 768px) {
+
   .sidebar {
     position: fixed;
     top: 50px;

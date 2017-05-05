@@ -7,10 +7,15 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<h1>Welcome to the Web Map Interface</h1>
+<h4>Please Sign In or Register Below</h4>
 
 <div class='col-sm-6 col-sm-offset-3'>
   
-<h1>{% trans "Sign In" %}</h1>
+<!--
+<h1>Welcome to the Web Map Interface</h1>
+<h2>Please Sign In or Register Below</h2>
+-->
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}

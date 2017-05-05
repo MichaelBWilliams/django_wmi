@@ -1,0 +1,60 @@
+<div class="col-md-4">
+  <div class="hovereffect">
+      <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/{{name}}/CL_thumb.jpg" alt="" width=300 height=300>
+      <div class="overlay">
+         <h4>Croplands Atlas</h4>
+         <a class="info" href="#" data-toggle="modal" data-target="#cropland">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
+      </div>
+  </div>
+</div>
+<!-- Modal Branch Distance Atlas-->
+{% with "cropland" as theme %}
+<div id="cropland" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">Cropland Map Atlas - {{name|capfirst}}</h2>
+      </div>
+      <div class="modal-body col-sm-12">
+        <div class="row col-sm-12">
+          <div class= "col-sm-4">
+            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/{{name}}/CL_thumb.jpg" alt="" width=297 height=210>
+            </div>
+          <div class="col-sm-8">
+            <h3>About</h3>
+            <p>Placeholder text about the Branch map atlas, download options for the atlas, and links for external data sources.</p>
+            <div class="alert alert-warning">
+              <strong>Warning!</strong> Entire Atlas files are very large (>15mb). For smaller download size, administrative units can be downloaded individually below. 
+            </div>
+            <a href="https://s3.amazonaws.com/geo-bias/MapFiles/ProjectsPage.jpg" download class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download"></span> Download Entire Atlas (PDF)</a>
+            <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download"></span> Download Entire Atlas (JPEG)</a>
+          </div>
+        </div>
+        <div class="row col-sm-12">
+          <div class="dl-header">
+            <h3>Download PDF by Administrative Unit</h3>
+          </div>
+          <ul class="dl-admin-links">  
+            {% for i in country_list %}
+              {% for key, value in i.items %}
+                {% if key == theme %}
+                  {% for key, value in value.items %}
+                    <li><a href="{{ key }}" Download>{{value}}</a></li>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endwith %}
+<!-- End of Branch Distance Atlas Modal -->

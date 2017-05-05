@@ -26,7 +26,7 @@ SECRET_KEY = 'jm$hw2jg-q6=cxzirwcz=@gzv9c%_d5@$wp)c-ra_^^%0_^3as'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-35-167-98-158.us-west-2.compute.amazonaws.com', 'web-map-interface.geo-bias.com', 'www.web-map-interface.geo-bias.com', '172.31.27.194']
+ALLOWED_HOSTS = ['ec2-35-167-98-158.us-west-2.compute.amazonaws.com', 'web-map-interface.geo-bias.com', 'www.web-map-interface.geo-bias.com', '172.31.27.194', '127.0.0.1']
 #ALLOWED_HOSTS = ['172.31.27.194']
 
 EMAIL_HOST = "smtp.gmail.com"
@@ -190,12 +190,11 @@ AWS_ACCESS_KEY_ID = access_key
 AWS_SECRET_ACCESS_KEY = secret_key
 AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #media uploads
 S3_URL = '//%s.s3.amazonaws.com/' %AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = S3_URL + "media/"
 STATIC_URL = S3_URL + "static/"
-
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 

@@ -1,8 +1,40 @@
-<!DOCTYPE html>
+{% extends 'defaults/base.html' %}
+{% block content %}
 
-<body>
-<h1>Test Page</h1>
-</body>
+<div class="container-fluid">
+  <div class="row">
+        {% include 'defaults/sidebar.html' %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    {% with "kenya" as name %}
+    {% with "landcover" as theme %}
+    <h1>Not an item</h1>
+      
+      
+    <ul class="dl-admin-links"> 
+        
+        
+        {% for i in country_list %}
+          {% for key, value in i.items %}
+            {% if key == theme %}
+              {% for key, value in value.items %}
+                <li><a href="{{ key }}" Download>{{value}}</a></li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+      
+    </ul>
+    <p>{{name}} {{theme}}</p>
+      
+    {% endwith %}
+    {% endwith %}
+
+    </div>
+  </div>
+</div>
 
 
-</html>
+{% include 'defaults/modal_landcover.html' %}
+
+{% endblock %}
