@@ -31,14 +31,20 @@ class DownloadView(LoginRequiredMixin, View):
 class ViewerView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
     return render(request, "maps/viewer.html", {})
+
+class ResourcesView(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "maps/resources.html", {})
   
 # Start of country/MFI views
-class kenya_view(LoginRequiredMixin, GroupRequiredMixin, View):
+class kenya_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
   group_required = ["KE", "VFI", "AFR"]
   raise_exception = True
-  mapmatrix = "mapmatrixFAKE"
+  #mapmatrix = "mapmatrixFAKE"
   def get(self, request, *args, **kwargs):
-    return render(request, "maps/kenya.html", {})
+    COUNTRY = 'kenya'
+    country_list = s3resource.country_filter(self, COUNTRY)
+    return render(request, "maps/kenya.html", {'country_list' : country_list})
   
 class malawi_view(LoginRequiredMixin, GroupRequiredMixin, View):
   group_required = ["MW", "VFI", "AFR"]

@@ -1,8 +1,29 @@
 
 {% extends 'defaults/base.html' %}
 {% block content %}
-    <div class="col-sm-9">
-        <h2>Your are currently at home.html</h2>
-
-        </div> 
+<div class="container-fluid">
+  <div class="row row-top">
+    <h1>Web Map Interface</h1>
+  </div> 
+  <div class="row row-bottom">
+      <div class="col-sm-5 col-sm-offset-1 col-md-5 col-sm-offset-1">
+        <div>
+          <a href="/download/overview"><span class="glyphicon glyphicon-download home-glyph"></span></a>
+          <div class="col-sm-12 col-md-12">
+            <h3>Map Downloads</h3>
+            <p> Ready to download map atlases and individual maps for multiple themes. The entire VisionFund map catalog includes nearly 2,000 maps. Click the icon above to go to the map downloads page.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5 col-md-5">
+        <div>
+          <div class="col-sm-12 col-md-12">
+            <a href="/viewer"><span class="glyphicon glyphicon-globe home-glyph"></span></a>
+            <h3>Interactive Map Viewer</h3>
+            <p>Dynamically explore and compare datasets for your country, calculate basic statistics for data layers, and download and print custom map views. Click the icon above to go to the interactive map viewer page.</p>
+          </div>
+        </div>
+      </div>
+  </div>  
+</div>
 {% endblock %}
