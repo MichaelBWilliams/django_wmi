@@ -75,7 +75,7 @@ class s3resource():
             key_string = file['Key']
             if not key_string.endswith('/'):
                 path_id.append(key_string)
-        
+
         url_list = []
         for file in mapmatrix:
             key_string = file['Key']
@@ -88,18 +88,21 @@ class s3resource():
             key_string = file['Key']
             if not key_string.endswith('/'):
                 country_list.append(re.findall(r'(\w+)', key_string)[1])
-  
+
         theme_list = []
         for file in mapmatrix:
             key_string = file['Key']
             if not key_string.endswith('/'):
                 theme_list.append(re.findall(r'(\w+)', key_string)[2])
-  
+
         name_list = []
         for file in mapmatrix:
             key_string = file['Key']
             if not key_string.endswith('/'):
-                name_list.append(re.search(r'([A-Z])\w+', key_string)[0])
+                match = re.search(r'([A-Z])\w+([-\s+])?\w+', key_string)
+                if match:
+                    name_list.append(match.group(0))
+  
         
         all_list = [] #combine all the lists
         all_list.append(path_id)

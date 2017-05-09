@@ -23,14 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['ec2-35-167-98-158.us-west-2.compute.amazonaws.com', 'web-map-interface.geo-bias.com', 'www.web-map-interface.geo-bias.com', '172.31.27.194', '127.0.0.1']
-#ALLOWED_HOSTS = ['172.31.27.194']
+ADMINS = [('Michael', 'adm.geobias@gmail.com')]
+
+ALLOWED_HOSTS = ['ec2-52-89-23-151.us-west-2.compute.amazonaws.com', 'web-map-interface.geo-bias.com', 'www.web-map-interface.geo-bias.com', '172.31.17.40', '127.0.0.1']
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'adm.geobias@gmail.com'
-#EMAIL_MAIN = 'adm.geobias@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

@@ -14,9 +14,9 @@
   <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}"><b><u>sign in</u></b></a>.{% endblocktrans %}</p>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
+ 
   {{ form|crispy }}
-  
+  {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
