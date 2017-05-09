@@ -1,2 +1,8 @@
 src/wmi/settings_secret.py
 *.pyc
+*.swp
+
+
+
+
+
