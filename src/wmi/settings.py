@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from wmi.settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jm$hw7jg-q6=cxziqwcz=@grv9c%_d5%$wp)c-ra_^^%0_^3as'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,7 +31,7 @@ ALLOWED_HOSTS = ['ec2-35-167-98-158.us-west-2.compute.amazonaws.com', 'web-map-i
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'adm.geobias@gmail.com'
 #EMAIL_MAIN = 'adm.geobias@gmail.com'
-EMAIL_HOST_PASSWORD = email_password
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -186,8 +185,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-AWS_ACCESS_KEY_ID = access_key
-AWS_SECRET_ACCESS_KEY = secret_key
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
