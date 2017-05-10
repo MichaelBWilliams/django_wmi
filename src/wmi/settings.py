@@ -41,17 +41,6 @@ EMAIL_USE_TLS = True
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
 
-
-"""
-How to send email 
-
-from django.conf import settings
-from django.core.mail import send_mail
-
-send_mail("subject", "My app sends messages now. What are you doing for lunch?", settings.EMAIL_HOST_USER, ["jhartell@globalparametrics.com "], fail_silently = False)
-
-"""
-
 # Application definition
 
 INSTALLED_APPS = [

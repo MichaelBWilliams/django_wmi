@@ -3,5 +3,5 @@
 
 *wsgi.py
 
-
+src/wmi/settings_secret.py
 
