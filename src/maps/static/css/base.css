@@ -104,7 +104,15 @@ body {
 }
 
 .tab { 
-  text-indent:40px 
+  text-indent:40px;
+}
+
+.overview {
+    padding-top: 10px;
+}
+
+.pad10 {
+	padding-top: 10px;
 }
 
 
