@@ -107,8 +107,11 @@ body {
   text-indent:40px;
 }
 
-.overview {
-    padding-top: 10px;
+.overview-top {
+    padding-top: 0px;
+}
+.overview-top p {
+    font-size: 1.2em;
 }
 
 .pad10 {

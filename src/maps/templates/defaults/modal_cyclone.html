@@ -1,31 +1,31 @@
 <div class="col-md-4">
   <div class="hovereffect">
-      <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CL_thumb.jpg" alt="" width=300 height=300>
+      <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/TC_thumb.jpg" alt="" width=300 height=300>
       <div class="overlay">
-         <h4>Croplands Atlas</h4>
-         <a class="info" href="#" data-toggle="modal" data-target="#cropland">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
+         <h4>Tropical Cyclone Selections</h4>
+         <a class="info" href="#" data-toggle="modal" data-target="#cyclone">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
       </div>
   </div>
 </div>
 <!-- Modal Branch Distance Atlas-->
-{% with "cropland" as theme %}
-<div id="cropland" class="modal fade" role="dialog">
+{% with "cyclone" as theme %}
+<div id="cyclone" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title">Cropland Map Atlas - {{name|capfirst}}</h2>
+        <h2 class="modal-title">Tropical Cyclone Selections - {{name|capfirst}}</h2>
       </div>
       <div class="modal-body col-sm-12">
         <div class="row col-sm-12">
           <div class= "col-sm-4">
-            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CL_thumb.jpg" alt="" width=300 height=300>
+            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/TC_thumb.jpg" alt="" width=300 height=300>
             </div>
           <div class="col-sm-8">
             <h3>About</h3>
-            <p>The croplands atlas diplays three different cropland-related landcover classes from the European Space Agency Climate Change Initiative (ESA-CCI) dataset. MFI branch locations are overlayed onto these classes and cropland area statistics are calculated by administrative unit. This mapping is meant to provide an easy to discern view of the croplands within a country to assist with planning and operations.</p>
+            <p>*Limited availability to Myanmar, Philippines, and Sri Lanka. The Tropical Cyclone Selections atlas provides both an overview of all Tropical Cyclones to impact a region since 1970, as well as a more in depth look at the top three storms with the estimated percentage of infrastructure damaged or destroyed by admin unit. The data is provided from Global Parametrics and the NOAA IBTrACS cyclone dataset. This data provides MFI staff with a comprehensive view of historic cyclone impacts on their area to assist with planning and operations.</p>
             <div class="alert alert-warning">
               <strong>Warning!</strong> Entire Atlas files are very large (>15mb). For smaller download size, administrative units can be downloaded individually below. 
             </div>

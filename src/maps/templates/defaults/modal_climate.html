@@ -1,31 +1,31 @@
 <div class="col-md-4">
   <div class="hovereffect">
-      <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CL_thumb.jpg" alt="" width=300 height=300>
+      <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CLMT_thumb.jpg" alt="" width=300 height=300>
       <div class="overlay">
-         <h4>Croplands Atlas</h4>
-         <a class="info" href="#" data-toggle="modal" data-target="#cropland">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
+         <h4>Climate Data Selections</h4>
+         <a class="info" href="#" data-toggle="modal" data-target="#climate">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
       </div>
   </div>
 </div>
 <!-- Modal Branch Distance Atlas-->
-{% with "cropland" as theme %}
-<div id="cropland" class="modal fade" role="dialog">
+{% with "climate" as theme %}
+<div id="climate" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title">Cropland Map Atlas - {{name|capfirst}}</h2>
+        <h2 class="modal-title">Climate Data Selections - {{name|capfirst}}</h2>
       </div>
       <div class="modal-body col-sm-12">
         <div class="row col-sm-12">
           <div class= "col-sm-4">
-            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CL_thumb.jpg" alt="" width=300 height=300>
+            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CLMT_thumb.jpg" alt="" width=300 height=300>
             </div>
           <div class="col-sm-8">
             <h3>About</h3>
-            <p>The croplands atlas diplays three different cropland-related landcover classes from the European Space Agency Climate Change Initiative (ESA-CCI) dataset. MFI branch locations are overlayed onto these classes and cropland area statistics are calculated by administrative unit. This mapping is meant to provide an easy to discern view of the croplands within a country to assist with planning and operations.</p>
+            <p>The Climate Data Selections atlas plot MFI branch locations with high resolution climate data of selected themes. These themes are sourced from WorldClim.org and cover the following nine important variables: Dependability of rainfall, annual precipitation, precip. of wettest and driest month, precip. of wettest and driest quarter, max temp of warmest month, min temp of coldest month, and average monthly precip. These maps are intended to be used in conjunction with other datasets to assist operations staff in making complext decisions.</p>
             <div class="alert alert-warning">
               <strong>Warning!</strong> Entire Atlas files are very large (>15mb). For smaller download size, administrative units can be downloaded individually below. 
             </div>
