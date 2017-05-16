@@ -368,13 +368,13 @@ body {
   font-size: 200px;
   color: white; 
 }
-
-.about-background {
+.background {
   background-size: cover;
   background-position: center;
   background-color: #192430;
   height: 100vh;
 }
+
 .about {
   margin-top: 50px;
 }
@@ -454,3 +454,24 @@ body {
   border-radius: 100%;
   border: 1px solid #c8c8c8;
 }
+
+.contact {
+  margin-top: 100px;
+  padding: 20px;
+  text-align: center;
+  font-size: 6em;
+  text-align: left;
+  color: white;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+.contact-info {
+  margin-top: 25px;
+  margin-left: 20px;
+  font-size: 1.5em;
+  color: white;
+}
+.contact-info li {
+  margin: 0 0 25px 0;
+}
+
