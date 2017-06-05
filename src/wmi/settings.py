@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from wmi.settings_secret import *  #Dev only
+#from wmi.settings_secret import *  #Dev only
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.environ['SECRET_KEY']
-SECRET_KEY = secret_key #Dev only
+SECRET_KEY = os.environ['SECRET_KEY'] #Production
+#SECRET_KEY = secret_key #Dev only
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-DEBUG = True #Dev only
+DEBUG = False #Production
+#DEBUG = True #Dev only
 
 ADMINS = [('Michael', 'adm.geobias@gmail.com')]
 
@@ -34,8 +34,8 @@ ALLOWED_HOSTS = ['ec2-52-89-23-151.us-west-2.compute.amazonaws.com', 'web-map-in
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'adm.geobias@gmail.com'
-#EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_HOST_PASSWORD = email_password #Dev only
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD'] #production
+#EMAIL_HOST_PASSWORD = email_password #Dev only
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -87,7 +87,7 @@ LOGIN_REDIRECT_URL = "/"
 
 ACCOUNT_ADAPTER = 'maps.forms.email_adapter'
 
-ALLOWED_DOMAIN = 'globalparametrics.com', 'wvi.org', 'vfi.org', 'gmail.com'
+ALLOWED_DOMAIN = 'globalparametrics.com', 'wvi.org', 'vfi.org'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
@@ -171,10 +171,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] #Production
-#AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] #Production
-AWS_ACCESS_KEY_ID = access_key #Dev
-AWS_SECRET_ACCESS_KEY = aws_secret_key #Dev
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] #Production
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] #Production
+#AWS_ACCESS_KEY_ID = access_key #Dev
+#AWS_SECRET_ACCESS_KEY = aws_secret_key #Dev
 AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
