@@ -177,11 +177,11 @@ AWS_ACCESS_KEY_ID = access_key #Dev
 AWS_SECRET_ACCESS_KEY = aws_secret_key #Dev
 AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
 
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #media uploads
-#S3_URL = '//%s.s3.amazonaws.com/' %AWS_STORAGE_BUCKET_NAME
-#MEDIA_URL = S3_URL + "media/"
-#STATIC_URL = S3_URL + "static/"
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #media uploads
+S3_URL = '//%s.s3.amazonaws.com/' %AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = S3_URL + "media/"
+STATIC_URL = S3_URL + "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 
