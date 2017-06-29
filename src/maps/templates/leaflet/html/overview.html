@@ -1,0 +1,122 @@
+
+{% extends 'defaults/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    
+  {% include 'defaults/sidebarViewer.html' %}
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header"><span class="glyphicon glyphicon-download-alt"></span>&nbsp Interactive Map Viewer Overview</h1>
+
+      <div class="row placeholders">
+        <div class="col-sm-12 placeholder">
+          <ul class="go-to">
+            <li class="bold">Page Navigation:</li> 
+            <li class="goto"><a href="#about">About</a></li>
+            <li class="goto"><a href="#howto">How to use the downloads tool</a></li>
+            <li class="goto"><a href="#scndthemes">Standard Map themes</a></li>
+          </ul>
+          <!--About section for map download interface-->
+          <section class="info">
+            <div class="col-sm-12">
+              <span class="anchor" id="about"></span>
+              <div class="overview-top">
+                <h1>About</h1>
+                <div class="col-sm-12">
+                  <p class = "tab">The Web Map Interface downloads tool provides <b>ready-to-access</b> map atlases and individual administrative area maps for important thematic data available in each country. The individual country pages display the available mapping themes, which have been selected as relevant to the MFI and include links for downloading each of these map sets. While the number of individual maps availabe for each country varies, the entire VisionFund map catalog includes nearly <b>2,000 maps</b>. If you would like to see more information about the data used to generate these maps or request additional mapping related to your MFI, please see the <b><a href="/resources">Data Links</a></b> page or go to the <b><a href="/contact">Contact</a></b> page. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          <!--User how-to section for map download interface-->
+          </section>
+          <section class="info">
+            <div class="col-sm-12">
+              <span class="anchor" id="howto"></span>
+              <div class="overview">
+                <h1>How to use the map downloads tool</h1>
+                  <div class = "row">
+                    <div class="col-sm-6 col-sm-offset-1 how-to">
+                      <p class = "tab">The download interface is organized by the country or countries available to the user. These are displayed on the panel to the left. To navigate to a specific download page, click the name of the country. *Not all users may see the same selections.</p>
+                      <p class="tab">Once a country has been selected, all map atlases available for that country will be displayed on the main page. To view download options for a specific theme, click on the thumbnail image of the map. </p>
+                    </div>
+                    <div class="col-sm-5">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/images/Overview1.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                    </div>
+                  </div>
+                  <div class = "row overview">
+                    <div class="col-sm-4 col-sm-offset-1 how-to">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/images/Overview2.jpg" class="img-responsive img-thumbnail" width="400" height="300">
+                    </div>
+                    <div class="col-sm-6">
+                      <p class = "tab">(1) After making a selection a window will open to show information about the theme and download options.</p>
+                      <p class="tab">(2) Map atlases can be downloaded as a complete package, formatted in a single .pdf file or a .zip file of .jpeg images. These files can be large and will take a longer time to download depending on the available internet connection speeds</p>
+                      <p class="tab">(3) Administrative units are available for individual download as .jpeg files. These smaller files are the same as those within the complete map packages above, but can be accessed idependently.</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section on secondary map themes in three-wide gallery layout-->
+          <section class="info">
+            <div class="col-sm-12">
+              <span class="anchor" id="scndthemes"></span>
+              <div class="overview">
+                <h1>Standard Map Themes</h1>
+                <div class="col-sm-12">
+                  <p class="tab">The following map themes have been used to create maps and map packages for countries within the project scope. Some themes are only available for particular regions and not all countries will have the same map packages available.</p>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CLMT_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Climate Data Selections</h4>
+                      <p>The Climate Data Selections atlas plot MFI branch locations with high resolution climate data of selected themes. These themes are sourced from WorldClim.org and cover the following nine important variables: Dependability of rainfall, annual precipitation, precip. of wettest and driest month, precip. of wettest and driest quarter, max temp of warmest month, min temp of coldest month, and average monthly precip. These maps are intended to be used in conjunction with other datasets to assist operations staff in making complext decisions.</p>
+                    </div>
+                    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/PRT_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Outstanding Portfolio Composition</h4>
+                      <p>** Not available for Malawi, Uganda, and Zambia. The Outstanding Portfolio Composition map selections use available loan portfolio data to spatially represent detailed views of individual branch office portfolios. Pie charts are used to display the different sectors of lending, such as agriculture, industry, and trade and are sized according to outstanding portfolio value of each branch. Real portfolio values in USD are also listed for branch and sector in a chart at the bottom of each page.</p>
+                    </div>
+                    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/BA_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Drive time to Nearest Branch</h4>
+                      <p>The driving distance atlas displays the estimated driving distance a client or loan officer would have to travel to reach the nearest branch office. This has been calculated using branch location coordinates in conjunction with available road network data. This analysis is meant to branch network coverage within a country, as well as provide estimations of driving distances to any area within the network.</p>
+                    </div>
+		          </div>
+		          <div class="row">
+				    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/CL_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Cropland</h4>
+                      <p>The cropland atlas diplays three different cropland-related landcover classes from the European Space Agency Climate Change Initiative (ESA-CCI) dataset. MFI branch locations are overlayed onto these classes and cropland area statistics are calculated by administrative unit. This mapping is meant to provide an easy to discern view of the croplands within a country to assist with planning and operations.</p>
+                    </div>
+                    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/LC_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Landcover</h4>
+                      <p>The landcover atlas displays multiple landcover classes defined and calculated by the European Space Agency Climate Change Initiative (ESA-CCI). MFI branch locations are shown overlayed onto these classes. To see the area analysis completed for the cropland class, please see the Croplands atlas. This mapping is meant to provide a comprehensive view of the landcover types within an MFI's country to assist with planning and operations.</p>
+                    </div>
+                    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/POP_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Population</h4>
+                      <p>The population atlas plots high resolution population density estimates provided from WorldPop.org with MFI branch locations. This dataset provides MFI staff with an overview of how the population in their country is organzied spatially. It is meant to assist in planning and operations tasks.</p>
+                    </div>
+				  </div>
+				  <div class="row">
+				    <div class="col-sm-4 second-themes">
+                      <img src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/POV_thumb.jpg" class="img-responsive img-thumbnail" width="300" height="300">
+                      <h4>Poverty Mapping</h4>
+                      <p>*Limited availability to Kenya, Malawi, Uganda, and Tanzania. The Poverty atlas plots high resolution poverty estimates with MFI branch locations. These estimates are provided by WorldPop.org and defined by the Multidimensional Poverty Index (MPI). The data is represented as the percentage of the population in poverty according to the MPI and is meant to provide MFI staff with more information for planning and operations.</p>
+                    </div>
+				  </div>
+                  </div>
+                </div>
+              </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

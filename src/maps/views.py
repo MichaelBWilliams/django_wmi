@@ -30,20 +30,24 @@ class DownloadView(LoginRequiredMixin, View):
   
 class ViewerView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
-    return render(request, "BranchMap_1/index.html", {})
+    return render(request, "leaflet/html/overview.html", {})
 
 class ResourcesView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
     return render(request, "maps/resources.html", {})
+
+class ResourcesV_View(LoginRequiredMixin, View):
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/resources.html", {})
   
 # Start of country/MFI views
-class kenya_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
-  group_required = ["KE", "VFI", "AFR"]
-  raise_exception = True
-  def get(self, request, *args, **kwargs):
-    COUNTRY = 'kenya'
-    country_list = s3resource.country_filter(self, COUNTRY)
-    return render(request, "maps/kenya.html", {'country_list' : country_list})
+#class kenya_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+#  group_required = ["KE", "VFI", "AFR"]
+#  raise_exception = True
+#  def get(self, request, *args, **kwargs):
+#    COUNTRY = 'kenya'
+#    country_list = s3resource.country_filter(self, COUNTRY)
+#    return render(request, "maps/kenya.html", {'country_list' : country_list})
   
 class kenya_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
   group_required = ["KE", "VFI", "AFR"]
@@ -134,6 +138,76 @@ class honduras_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
     return render(request, "maps/srilanka.html", {'country_list' : country_list})
   
 # End of country/MFI specific views
+
+# Start of country/MFI views for interactive viewer
+class kenyaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["KE", "VFI", "AFR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/kenya.html", {})
+  
+class malawiV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["MW", "VFI", "AFR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/malawi.html", {})
+  
+class tanzaniaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["TZ", "VFI", "AFR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/tanzania.html", {})
+  
+class ugandaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["UG", "VFI", "AFR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/uganda.html", {})
+
+class zambiaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["ZM", "VFI", "AFR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/zambia.html", {})
+  
+class cambodiaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["KH", "VFI", "ASR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/cambodia.html", {})
+  
+class myanmarV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["MM", "VFI", "ASR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/myanmar.html", {})
+  
+class philippinesV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["PH", "VFI", "ASR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/philippines.html", {})
+  
+class srilankaV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["LK", "VFI", "ASR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/srilanka.html", {})
+  
+class ecuadorV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["EC", "VFI", "LAR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/ecuador.html", {})
+  
+class hondurasV_view(LoginRequiredMixin, GroupRequiredMixin, s3resource, View):
+  group_required = ["HN", "VFI", "LAR"]
+  raise_exception = True
+  def get(self, request, *args, **kwargs):
+    return render(request, "leaflet/html/honduras.html", {})
+  
+# End of country/MFI specific views for interactive viewer
+
 
 class test(LoginRequiredMixin, s3resource, View):
   def get(self, request, *args, **kwargs):

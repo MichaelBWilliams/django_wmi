@@ -1,11 +1,5 @@
-
-{% extends 'defaults/base.html' %}
 {% load staticfiles %}
-{% block content %}
-
-<html>
 <head>
-  <title>A Leaflet map!</title>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
@@ -40,22 +34,3 @@
 		}
   </style>
 </head>
-<body>
-
-{% include 'defaults/sidebar.html' %}
-
-
-  		<div id="map" class="col-md-6"></div>
-
-	
-
-  <script src = "{% static 'GeoJSON/LK_Adm1Exposure.js' %}"></script>
-  <script src = "{% static 'GeoJSON/LK_branchList.js' %}"></script>
-  <script src = "{% static 'style/LK_exposure.js' %}"></script>
-  <script src = "{% static 'style/LK_adm1Style.js' %}"></script>
-  <script src = "{% static 'LK_script.js' %}"></script>
-
-</body>
-</html>
-
-{% endblock %}

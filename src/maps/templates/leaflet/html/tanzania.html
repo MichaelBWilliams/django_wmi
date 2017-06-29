@@ -1,0 +1,21 @@
+{% extends 'defaults/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<html>
+{% include 'defaults/leaflet.html' %}
+
+<body>
+{% include 'defaults/sidebarViewer.html' %}
+	
+<div id="map"></div>
+	
+  <script src = "{% static 'GeoJSON/TZ_Adm1Exposure.js' %}"></script>
+  <script src = "{% static 'GeoJSON/TZ_branchList.js' %}"></script>
+  <script src = "{% static 'style/TZ_exposure.js' %}"></script>
+  <script src = "{% static 'style/TZ_adm1Style.js' %}"></script>
+  <script src = "{% static 'js/TZ_script.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}
