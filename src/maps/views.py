@@ -30,7 +30,7 @@ class DownloadView(LoginRequiredMixin, View):
   
 class ViewerView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
-    return render(request, "maps/viewer.html", {})
+    return render(request, "BranchMap_1/index.html", {})
 
 class ResourcesView(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):

@@ -1,0 +1,61 @@
+
+{% extends 'defaults/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<html>
+<head>
+  <title>A Leaflet map!</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="{% static 'style/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'plugins/leaflet.zoomhome.css' %}"/>
+	<script src="{% static 'plugins/leaflet.zoomhome.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'plugins/Control.MiniMap.min.css' %}">
+	<script src="{% static 'plugins/Control.MiniMap.min.js' %}" type="text/javascript"></script>
+	<link rel="stylesheet" href="{% static 'plugins/styledLayerControl.css' %}">
+	<script src="{% static 'plugins/styledLayerControl.js' %}" type="text/javascript"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLBTwNOM2GYj4uGjYfD4bah0UGhK-l2Kc" async defer></script>
+	<script src="{% static 'plugins/Leaflet.GoogleMutant.js'%}"></script>
+  <style>
+	body {
+		padding: 10px;
+    margin: 0;
+		height: 100%;
+		width: 100%;
+	}
+	html {
+		height: 100%;
+	}
+	#map {
+		position: absolute;
+		top: 7%;
+		height: 92%;
+		left: 20%;
+		width: 78%;
+		z-index: 1;
+		border-style: solid;
+		border-color: #eee;
+		}
+  </style>
+</head>
+<body>
+
+{% include 'defaults/sidebar.html' %}
+
+
+  		<div id="map" class="col-md-6"></div>
+
+	
+
+  <script src = "{% static 'GeoJSON/LK_Adm1Exposure.js' %}"></script>
+  <script src = "{% static 'GeoJSON/LK_branchList.js' %}"></script>
+  <script src = "{% static 'style/exposure.js' %}"></script>
+  <script src = "{% static 'style/adm1Style.js' %}"></script>
+  <script src = "{% static 'script.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}
