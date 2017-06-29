@@ -23,7 +23,7 @@ ORGANIZATION = (
   ('PH', 'Philippines'),
   ('LK', 'Sri Lanka'),
   ('TZ', 'Tanzania'),
-  ('UG', 'Ugnada'),
+  ('UG', 'Uganda'),
   ('ZM', 'Zambia'),
   ('VFI', 'VisionFund International'),
   ('AFR', 'Africa Regional'),

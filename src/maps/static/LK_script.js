@@ -1,15 +1,15 @@
 // Set the bounds
 var bounds = [
-	[10.16,82.75],
+	[11.36,82.75],
 	[5.81, 78.36]
 ];
 
 // initialize the map
 var map = L.map('map', {
-	center: [7.99, 80.55],
+	center: [7.9, 80.55],
 	zoomSnap: .5,
 	zoomDelta: .5,
-	zoom: 7.5,
+	zoom: 8,
 	minZoom: 7,
 	maxBounds: bounds, 
 	trackResize: true, 
@@ -17,13 +17,13 @@ var map = L.map('map', {
 });
 
 // load basemaps
-var OSM_hydda = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+var OSM_hydda = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
 	maxZoom: 18,
-	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: 'Tiles courtesy of <a href="https://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-var OpenMapSurfer_Roads = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+var OpenMapSurfer_Roads = L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
 	maxZoom: 20,
-	attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: 'Imagery from <a href="https://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 var g_roads = L.gridLayer.googleMutant({
     type: 'roadmap' // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
