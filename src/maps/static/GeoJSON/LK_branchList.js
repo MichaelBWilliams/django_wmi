@@ -1,4 +1,4 @@
-var branchList =
+var LK_branchList =
 
 {
 "type": "FeatureCollection",

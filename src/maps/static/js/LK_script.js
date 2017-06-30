@@ -128,7 +128,7 @@ var exposureLayer = L.geoJSON(LK_adm1, {
 }).bindTooltip(function(layer){return String('<b>' + layer.feature.properties.name + ': ' + (layer.feature.properties.percentTotal) + '% Exposure' + '</b>')}, {direction: "center", className: "admLabel"});
 
 
-var branchLayer = L.geoJSON(branchList, {
+var branchLayer = L.geoJSON(LK_branchList, {
 	
 }).bindPopup(function(layer){return String(layer.feature.properties.name)}, {direction: "center", className: "admLabel"});
 
