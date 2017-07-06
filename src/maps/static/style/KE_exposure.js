@@ -1,10 +1,10 @@
 // Style for exposure choropleth
 function getColor(d) {
-	return 	d > 10.4 ? '#08306b' :
-			d > 7.8 ? '#2879b9' :
-			d > 5.2 ? '#73b3d8' :
-			d > 2.6 ? '#c8ddf0' :
-			d > 0 ? '#f7fbff':
+	return 	d > 9 ? '#08306b' :
+			d > 7 ? '#2879b9' :
+			d > 2 ? '#73b3d8' :
+			d > 1 ? '#c8ddf0' :
+			d > 0.001 ? '#f7fbff':
 					'rgba(247, 251, 255, 0)';					
 };
 //function getOpacity(d) {

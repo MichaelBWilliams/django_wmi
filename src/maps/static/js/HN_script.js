@@ -1,12 +1,12 @@
 // Set the bounds
 var bounds = [
-	[11.36,82.75],
-	[5.81, 78.36]
+	[11.8423,-90.2617],
+	[17.6056, -82.2676]
 ];
 
 // initialize the map
 var map = L.map('map', {
-	center: [7.9, 80.55],
+	center: [14.7, -86.2419],
 	zoomSnap: .5,
 	zoomDelta: .5,
 	zoom: 8,
@@ -39,11 +39,11 @@ var g_satellite = L.gridLayer.googleMutant({
 var osmUrl = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png';
 var osmAttrib = 'Map data &copy; OpenStreetMap contributors';
 var osm2 = new L.TileLayer(osmUrl, {attribution: osmAttrib });
-var adm1Mini = L.geoJSON(LK_adm1, {
-	style: adm1Style
+var adm1Mini = L.geoJSON(HN_adm1, {
+	style: adm1StyleMini
 });
 var layers = new L.LayerGroup([osm2, adm1Mini]);
-var miniMap = new L.Control.MiniMap(layers, {toggleDisplay: true, zoomLevelFixed: 5, centerFixed: [7.99, 80.55]}).addTo(map);
+var miniMap = new L.Control.MiniMap(layers, {toggleDisplay: true, zoomLevelFixed: 5, centerFixed: [14.7, -86.2419]}).addTo(map);
 // End mini map plugin
 
 // Zoom home control for plugin
@@ -116,19 +116,19 @@ function onEachFeature2(feature, layer) {
 
 
 // Layers
-var adm1Layer = L.geoJSON(LK_adm1, {
+var adm1Layer = L.geoJSON(HN_adm1, {
 	style: adm1Style, 
 	onEachFeature: onEachFeature
 }).bindTooltip(function(layer){return String('<b>' + layer.feature.properties.name + '</b>')}, {direction: "center", className: "admLabel"});
 
 
-var exposureLayer = L.geoJSON(LK_adm1, {
+var exposureLayer = L.geoJSON(HN_adm1, {
 	style: styleExposure, 
 	onEachFeature: onEachFeature2
 }).bindTooltip(function(layer){return String('<b>' + layer.feature.properties.name + ': ' + (layer.feature.properties.percentTotal) + '% Exposure' + '</b>')}, {direction: "center", className: "admLabel"});
 
 
-var branchLayer = L.geoJSON(branchList, {
+var branchLayer = L.geoJSON(HN_branchList, {
 	
 }).bindPopup(function(layer){return String(layer.feature.properties.name)}, {direction: "center", className: "admLabel"});
 
@@ -136,7 +136,7 @@ var branchLayer = L.geoJSON(branchList, {
 var baseMaps = [
 	{
 		groupName: "Base Maps",
-		expanded: false,
+		expanded: true,
 		layers: {
 			"Base Map (Default)": OSM_hydda, 
 			"Roads": OpenMapSurfer_Roads, 
@@ -220,7 +220,7 @@ function format2(n, currency) {
     return currency + "" + n.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,");
 }
 infoExposure.update = function (props) {
-	this._div.innerHTML = '<h4>Selected Administrative Unit</h4>' + (props ? 'Name: ' + '<b>' + props.name + '</b><br/>' + 'GID # ' + '<b>' + props.gid + '</b><br/>' + 'Estimated % of<br/>Total Exposure: ' + '<b>' + props.percentTotal + '%</b><br/>' + '2015 Exposure<br/>in USD: ' + '<b>' + (format2(props.ExposureUSD, "$")) + '</b>' : 'Hover to see:<br/><b>Administrative unit name<br/>GID #<br/>Estimated exposure values</b>');
+	this._div.innerHTML = '<h4>Selected Administrative Unit</h4>' + (props ? 'Name: ' + '<b>' + props.name + '</b><br/>' + 'GID # ' + '<b>' + props.gid + '</b><br/>' + 'Estimated % of<br/>Total Exposure: ' + '<b>' + props.percentTotal + '%</b><br/>' + '2016 Exposure<br/>in USD: ' + '<b>' + (format2(props.exposure_u, "$")) + '</b>' : 'Hover to see:<br/><b>Administrative unit name<br/>GID #<br/>Estimated exposure values</b>');
 };
 map.on('overlayadd', function (eventLayer) {
 	if (eventLayer.name === "Admin 1 Exposure"){
@@ -242,7 +242,7 @@ map.on('overlayadd', function(eventLayer) {
 var legendExposure = L.control({position: 'bottomright'});
 	legendExposure.onAdd = function (map) {
 		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 2.6, 5.2, 7.8, 10.4],
+			grades = [0, 3, 6, 9, 12],
 			labels = ['<strong> Estimated Percent of<br>Portfolio Exposure </strong>'],
 			from, to;
 //		If there are admin units with NO exposure, include this style

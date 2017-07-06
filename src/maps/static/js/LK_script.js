@@ -40,7 +40,7 @@ var osmUrl = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png';
 var osmAttrib = 'Map data &copy; OpenStreetMap contributors';
 var osm2 = new L.TileLayer(osmUrl, {attribution: osmAttrib });
 var adm1Mini = L.geoJSON(LK_adm1, {
-	style: adm1Style
+	style: adm1StyleMini
 });
 var layers = new L.LayerGroup([osm2, adm1Mini]);
 var miniMap = new L.Control.MiniMap(layers, {toggleDisplay: true, zoomLevelFixed: 5, centerFixed: [7.99, 80.55]}).addTo(map);
@@ -136,7 +136,7 @@ var branchLayer = L.geoJSON(LK_branchList, {
 var baseMaps = [
 	{
 		groupName: "Base Maps",
-		expanded: false,
+		expanded: true,
 		layers: {
 			"Base Map (Default)": OSM_hydda, 
 			"Roads": OpenMapSurfer_Roads, 
