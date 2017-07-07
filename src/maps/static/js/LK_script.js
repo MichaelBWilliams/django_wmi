@@ -129,8 +129,7 @@ var exposureLayer = L.geoJSON(LK_adm1, {
 
 
 var branchLayer = L.geoJSON(LK_branchList, {
-	
-}).bindPopup(function(layer){return String(layer.feature.properties.name)}, {direction: "center", className: "admLabel"});
+}).bindPopup(function(layer){return String('<b>' + layer.feature.properties.name + '</b>')}, {direction: "center", className: "admLabel"});
 
 // Layer groups using styledLayerControl plugin
 var baseMaps = [
@@ -287,6 +286,11 @@ map.on('overlayadd', function(eo) {
     }, 10);
   }
 });
+
+L.browserPrint({
+	title: 'Web Map Interface Export', 
+	closePopupsOnPrint: false
+}).addTo(map);
 
 
 // Scale bar plugin
