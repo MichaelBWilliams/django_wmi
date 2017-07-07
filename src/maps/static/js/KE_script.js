@@ -20,11 +20,11 @@ var map = L.map('map', {
 var OSM_hydda = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
 	maxZoom: 18,
 	attribution: 'Tiles courtesy of <a href="https://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+});
 var OpenMapSurfer_Roads = L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
 	maxZoom: 20,
 	attribution: 'Imagery from <a href="https://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
+}).addTo(map);
 var g_roads = L.gridLayer.googleMutant({
     type: 'roadmap' // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
 });
@@ -129,8 +129,7 @@ var exposureLayer = L.geoJSON(KE_adm1, {
 
 
 var branchLayer = L.geoJSON(KE_branchList, {
-	
-}).bindPopup(function(layer){return String(layer.feature.properties.name)}, {direction: "center", className: "admLabel"});
+}).bindPopup(function(layer){return String('<b>' + layer.feature.properties.name + '</b><br/>' + 'Outstanding Portfolio 2016 (USD): <br/>' + 'Total: <b>' + (format2(layer.feature.properties.OutAmtUSD, "$")) + '</b><br/>' + 'Agriculture: <b>' + (format2(layer.feature.properties.Agricultur, "$")) + '</b><br/>' + 'Asset Loan: <b>' + (format2(layer.feature.properties.Asset, "$")) + '</b><br/>' + 'Business: <b>' + (format2(layer.feature.properties.Business, "$")) + '</b><br/>'  + 'Education: <b>' + (format2(layer.feature.properties.Education, "$")) + '</b><br/>' + 'Livelihood: <b>' + (format2(layer.feature.properties.Livelihood, "$")) + '</b><br/>' + 'El Nino Loan: <b>' + (format2(layer.feature.properties.ElNinoLoan, "$")) + '</b><br/>')}, {direction: "center", className: "admLabel"});
 
 // Layer groups using styledLayerControl plugin
 var baseMaps = [
@@ -138,7 +137,7 @@ var baseMaps = [
 		groupName: "Base Maps",
 		expanded: true,
 		layers: {
-			"Base Map (Default)": OSM_hydda, 
+			"Base Map": OSM_hydda, 
 			"Roads": OpenMapSurfer_Roads, 
 			"Google Maps - Roads": g_roads,
 			"Google Maps - Terrain": g_terrain,
@@ -288,6 +287,10 @@ map.on('overlayadd', function(eo) {
   }
 });
 
+L.browserPrint({
+	title: 'Web Map Interface Export', 
+	closePopupsOnPrint: false
+}).addTo(map);
 
 // Scale bar plugin
 L.control.scale().addTo(map);
