@@ -29,7 +29,7 @@ ORGANIZATION = (
 class email_adapter(DefaultAccountAdapter):
     def clean_email(self, email):
         domain = email.split('@')[1].lower()     
-        allowed_emails = ['wvi.org', 'vfi.org', 'gmail.com', 'globalparametrics.com']
+        allowed_emails = ['wvi.org', 'vfi.org', 'globalparametrics.com']
         if domain not in allowed_emails:
             raise forms.ValidationError("You must use a WorldVision or VisionFund email address")
         return email

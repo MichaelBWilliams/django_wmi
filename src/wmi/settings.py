@@ -30,7 +30,7 @@ DEBUG = False #Production
 
 ADMINS = [('Michael', 'adm.geobias@gmail.com')]
 
-ALLOWED_HOSTS = ['ec2-52-89-23-151.us-west-2.compute.amazonaws.com', 'web-map-interface.geo-bias.com', 'www.web-map-interface.geo-bias.com', '172.31.17.40', '127.0.0.1']
+ALLOWED_HOSTS = ['ec2-52-38-83-227.us-west-2.compute.amazonaws.com', 'webmapinterface.com', 'www.webmapinterface.com', '172.31.35.202', '127.0.0.1']
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'adm.geobias@gmail.com'
@@ -175,7 +175,7 @@ AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] #Production
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] #Production
 #AWS_ACCESS_KEY_ID = access_key #Dev
 #AWS_SECRET_ACCESS_KEY = aws_secret_key #Dev
-AWS_STORAGE_BUCKET_NAME = 'web-map-interface'
+AWS_STORAGE_BUCKET_NAME = 'wmicopy'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #static files such as css.
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #media uploads

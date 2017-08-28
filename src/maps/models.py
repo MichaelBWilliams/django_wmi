@@ -68,7 +68,7 @@ class s3resource():
         self.all_list = []    
     
     def return_maps(self, country):
-        mapmatrix = self.conn.list_objects(Bucket='web-map-interface', Prefix= 'maps/' + country + '/')['Contents']
+        mapmatrix = self.conn.list_objects(Bucket='wmicopy', Prefix= 'maps/' + country + '/')['Contents']
         path_id = []
         for file in mapmatrix:
             key_string = file['Key']
@@ -79,7 +79,7 @@ class s3resource():
         for file in mapmatrix:
             key_string = file['Key']
             if not key_string.endswith('/'):
-                url_string = 'https://s3-us-west-2.amazonaws.com/web-map-interface/' + key_string
+                url_string = 'https://s3-us-west-2.amazonaws.com/wmicopy/' + key_string
                 url_list.append( url_string)
 
         country_list = []
