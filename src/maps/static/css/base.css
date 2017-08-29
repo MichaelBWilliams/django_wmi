@@ -103,6 +103,21 @@ body {
   margin-top: 0;
 }
 
+.tab { 
+  text-indent:40px;
+}
+
+.overview-top {
+    padding-top: 0px;
+}
+.overview-top p {
+    font-size: 1.2em;
+}
+
+.pad10 {
+	padding-top: 10px;
+}
+
 
 /*
  * Placeholder dashboard ideas
@@ -320,15 +335,15 @@ body {
 
 /*home page css*/
 .row-top {
-  background-image: url("https://s3-us-west-2.amazonaws.com/web-map-interface/images/crops_road.jpg");
+  background-image: url("https://s3-us-west-2.amazonaws.com/wmicopy/images/crops_road.jpg");
   background-size: cover;
   background-position: center;
-  height: 40vh;
+  height: 35vh;
   border-bottom: 1px solid #4e4e4e;
 }
 .row-bottom {
   background-color: #192430;
-  height: 60vh;
+  height: 65vh;
   text-align: center;
   color: white;
 }
@@ -351,8 +366,112 @@ body {
 .home-glyph {
   padding-top: 50px;
   font-size: 200px;
-  color: white;
-  
+  color: white; 
+}
+.background {
+  background-size: cover;
+  background-position: center;
+  background-color: #192430;
+  height: 100vh;
 }
 
+.about {
+  margin-top: 50px;
+}
+.about-text h1 {
+  border-bottom: 1px solid #c8c8c8;
+}
+.about-text p {
+  margin-top: 25px;
+  text-align: left;
+}
+.overlay-image {
+  float:right;
+  width:45%; /*important*/
+/*  bottom:vh; important*/
+  padding: 35px;
+}
+.speech-bubble {
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    border-radius: 15px;
+    text-align: center;
+    padding: 40px;
+    position: absolute;
+    font-size: 1.2em;
+    height: 500px;
+}
+.speech-bubble p {
+  position: relative; 
+}
+.speech-bubble h1 {
+  font-size: 4em;
+  margin-top: -20px;
+  text-align: left;
+}
+
+.speech-bubble .arrow {
+    border-style: solid;
+    position: absolute;
+}
+
+.bottom {
+    border-color: #c8c8c8 transparent transparent transparent;
+    border-width: 8px 8px 0px 8px;
+    bottom: -8px;
+
+}
+
+.bottom:after {
+    border-color: white transparent transparent transparent;
+    border-style: solid;
+    border-width: 7px 7px 0px 7px;
+    bottom: 1px;
+    content: "";
+    position: absolute;
+    left: -7px;    
+}
+.profile {
+  margin-top: 25px;
+  margin-left: 40px;
+}
+.profile-photo {
+  border: 1px solid #c8c8c8;
+}
+.profile p {
+  font-style: italic;
+  margin-left: -55px;
+  color: aliceblue;
+}
+.profile h2 {
+  font-style: italic;
+  margin-top: 5px;
+  margin-left: -55px;
+  color: aliceblue;
+}
+
+.img-circle {
+  border-radius: 100%;
+  border: 1px solid #c8c8c8;
+}
+
+.contact {
+  margin-top: 100px;
+  padding: 20px;
+  text-align: center;
+  font-size: 6em;
+  text-align: left;
+  color: white;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+.contact-info {
+  margin-top: 25px;
+  margin-left: 20px;
+  font-size: 1.5em;
+  color: white;
+}
+.contact-info li {
+  margin: 0 0 25px 0;
+}
 

@@ -23,7 +23,7 @@ ORGANIZATION = (
   ('PH', 'Philippines'),
   ('LK', 'Sri Lanka'),
   ('TZ', 'Tanzania'),
-  ('UG', 'Ugnada'),
+  ('UG', 'Uganda'),
   ('ZM', 'Zambia'),
   ('VFI', 'VisionFund International'),
   ('AFR', 'Africa Regional'),
@@ -67,9 +67,8 @@ class s3resource():
         )
         self.all_list = []    
     
-    def return_maps(self):
-        mapmatrix = self.conn.list_objects(Bucket='web-map-interface', Prefix= 'maps/')['Contents']
-        
+    def return_maps(self, country):
+        mapmatrix = self.conn.list_objects(Bucket='wmicopy', Prefix= 'maps/' + country + '/')['Contents']
         path_id = []
         for file in mapmatrix:
             key_string = file['Key']
@@ -80,7 +79,7 @@ class s3resource():
         for file in mapmatrix:
             key_string = file['Key']
             if not key_string.endswith('/'):
-                url_string = 'https://s3-us-west-2.amazonaws.com/web-map-interface/' + key_string
+                url_string = 'https://s3-us-west-2.amazonaws.com/wmicopy/' + key_string
                 url_list.append( url_string)
 
         country_list = []
@@ -99,7 +98,8 @@ class s3resource():
         for file in mapmatrix:
             key_string = file['Key']
             if not key_string.endswith('/'):
-                match = re.search(r'([A-Z])\w+([-\s+])?\w+', key_string)
+#                match = re.search(r'([A-Z])\w+([-\s+])?\w+', key_string) **Old regex**
+                match = re.search(r'[A-Z][\w\s:-]+', key_string)
                 if match:
                     name_list.append(match.group(0))
   
@@ -115,13 +115,13 @@ class s3resource():
         for i in range(len(all_list[0])):
             url_dict = {all_list[3][i]:all_list[4][i]}
             theme_dict = {all_list[2][i]:url_dict}
-            link_list.append({all_list[1][i]:theme_dict}) 
-
+            link_list.append({all_list[1][i]:theme_dict})
         return(link_list)
+		
 
     def country_filter(self, country):
         output = []
-        link_list = self.return_maps()
+        link_list = self.return_maps(country)
         for i in link_list:    
           for key, value in i.items():
             if key == country:

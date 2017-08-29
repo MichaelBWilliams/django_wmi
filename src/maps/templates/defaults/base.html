@@ -18,7 +18,7 @@
           <li class="{% if 'about' in request.path %}active{% endif %}"><a href="/about">About</a></li>
           <li class="{% if 'contact' in request.path %}active{% endif %}"><a href="/contact">Contact</a></li>
           <li class="{% if 'download' in request.path %}active{% endif %}"><a href="/download/overview">Map Downloads</a></li>
-          <li class="{% if 'viewer' in request.path %}active{% endif %}"><a href="/viewer">Map Viewer</a></li>
+          <li class="{% if 'viewer' in request.path %}active{% endif %}"><a href="/viewer/overview">Map Viewer</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><p>Hello <b>{{user.first_name}}</b> from <b>{{user.profile.organization}}!</b></p></li>

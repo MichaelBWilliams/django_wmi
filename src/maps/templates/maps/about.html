@@ -1,7 +1,31 @@
 {% extends 'defaults/base.html' %}
 {% block content %}
-    <div class="col-sm-9">
-        <h2>Your are currently at about.html</h2>
-
-        </div> 
+<div class="container-fluid background">
+  <div class="container about">
+    <div class= "row col-sm-8">
+      <div class="speech-bubble">
+        <div class="arrow bottom right">
+        </div>
+        <div class= "col-sm-11 about-text">
+          <h1>About</h1>
+          <p class="tab">"The Web Map Interface has been put together as an effort to provide MFI operations and planning staff with an easy and convenient way to access and use complicated datasets and themes. The maps and atlases here are a great way to see the ‘big picture’ of what’s going on in and around an area and then relate it to your own local knowledge. If you’re working in a regional or international capacity, these spatial representations provide the much needed background information to help understand a place you may have never visited before.</p>
+          <p class="tab">Thanks to the support of FMO, the VisionFund Financial Disaster Risk Management project team, and the countless other VisionFund staff who’ve given assistance while visiting their country, the Web Map Interface is ready to provide a great way to access maps and data. I hope you enjoy the maps and functionalities built into this website!"</p>
+        </div>
+      </div>
+    </div>
+    <div class = "col-sm-3 col-sm-offset-6 overlay-image">
+      <img class="img-circle" src="https://s3-us-west-2.amazonaws.com/wmicopy/images/AboutPagePhoto.jpg" width=425 height="425" >
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <img src="https://s3-us-west-2.amazonaws.com/wmicopy/images/Profile.jpg" class="profile profile-photo img-rounded" width="120" heigh="120">
+      </div>
+      <div class="col-sm-4 profile">
+        <h2>Michael B. Williams</h2>
+        <p>Geographer, GIS Applications Specialist</p>
+        <p>Lexington, Kentucky (USA)</p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

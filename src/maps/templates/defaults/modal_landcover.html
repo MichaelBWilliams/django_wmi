@@ -1,6 +1,6 @@
 <div class="col-md-4">
       <div class="hovereffect">
-          <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/{{name}}/LC_thumb.jpg" alt="" width=300 height=300>
+          <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/wmicopy/thumbnails/LC_thumb.jpg" alt="" width=300 height=300>
           <div class="overlay">
              <h4>Landcover Atlas</h4>
              <a class="info" href="#" data-toggle="modal" data-target="#landcover">Click here for map and data downloads&nbsp<span class="glyphicon glyphicon-file"></span></a>
@@ -22,16 +22,15 @@
       <div class="modal-body col-sm-12">
         <div class="row col-sm-12">
           <div class= "col-sm-4">
-            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/web-map-interface/thumbnails/{{name}}/LC_thumb.jpg" alt="" width=297 height=210>
+            <img class="img-responsive modal-image" src="https://s3-us-west-2.amazonaws.com/wmicopy/thumbnails/LC_thumb.jpg" alt="" width=300 height=300>
             </div>
           <div class="col-sm-8">
             <h3>About</h3>
-            <p>{{name}} {{theme}} {{mapmatrix}}   Placeholder text about the landcover map atlas, download options for the atlas, and links for external data sources.</p>
+            <p>The landcover atlas displays multiple landcover classes defined and calculated by the European Space Agency Climate Change Initiative (ESA-CCI). MFI branch locations are shown overlayed onto these classes. To see the area analysis completed for the cropland class, please see the Croplands atlas. This mapping is meant to provide a comprehensive view of the landcover types within an MFI's country to assist with planning and operations.</p>
             <div class="alert alert-warning">
               <strong>Warning!</strong> Entire Atlas files are very large (>15mb). For smaller download size, administrative units can be downloaded individually below. 
             </div>
-            <a href="https://s3.amazonaws.com/geo-bias/MapFiles/ProjectsPage.jpg" download class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download"></span> Download Entire Atlas (PDF)</a>
-            <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download"></span> Download Entire Atlas (JPEG)</a>
+            <a href="https://s3-us-west-2.amazonaws.com/wmicopy/maps/{{name}}/entireatlas/{{theme}}Atlas.pdf" download class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download"></span> Download Entire Atlas (PDF)</a>
           </div>
         </div>
         <div class="row col-sm-12">

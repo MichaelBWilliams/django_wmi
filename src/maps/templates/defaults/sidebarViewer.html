@@ -1,0 +1,49 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="region">Interactive Map Selections</li>
+    <li class="{% if 'overview' in request.path %}active{% endif %}"><a href="/viewer/overview">Overview</a></li>
+    <li class="{% if 'resources' in request.path %}active{% endif %}"><a href="/viewer/resources">Data Links</a></li>
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li class="region">Africa</li>
+    {% if user.profile.organization == 'KE' or user.profile.organization == 'VFI' or user.profile.organization == 'AFR' %}
+    <li class="{% if 'kenya' in request.path %}active{% endif %}"><a href="/viewer/kenya">Kenya</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'MW' or user.profile.organization == 'VFI' or user.profile.organization == 'AFR' %}
+    <li class="{% if 'malawi' in request.path %}active{% endif %}"><a href="/viewer/malawi">Malawi</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'TZ' or user.profile.organization == 'VFI' or user.profile.organization == 'AFR' %}
+    <li class="{% if 'tanzania' in request.path %}active{% endif %}"><a href="/viewer/tanzania">Tanzania</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'UG' or user.profile.organization == 'VFI' or user.profile.organization == 'AFR' %}
+    <li class="{% if 'uganda' in request.path %}active{% endif %}"><a href="/viewer/uganda">Uganda</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'ZM' or user.profile.organization == 'VFI' or user.profile.organization == 'AFR' %}
+    <li class="{% if 'zambia' in request.path %}active{% endif %}"><a href="/viewer/zambia">Zambia</a></li>
+    {% endif %}
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li class="region">Asia</li>
+    {% if user.profile.organization == 'KH' or user.profile.organization == 'VFI' or user.profile.organization == 'ASR' %}
+    <li class="{% if 'cambodia' in request.path %}active{% endif %}"><a href="/viewer/cambodia">Cambodia</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'MM' or user.profile.organization == 'VFI' or user.profile.organization == 'ASR' %}
+    <li class="{% if 'myanmar' in request.path %}active{% endif %}"><a href="/viewer/myanmar">Myanmar</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'PH' or user.profile.organization == 'VFI' or user.profile.organization == 'ASR' %}
+    <li class="{% if 'philippines' in request.path %}active{% endif %}"><a href="/viewer/philippines">Philippines</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'LK' or user.profile.organization == 'VFI' or user.profile.organization == 'ASR' %}
+    <li class="{% if 'srilanka' in request.path %}active{% endif %}"><a href="/viewer/srilanka">Sri Lanka</a></li>
+    {% endif %}
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li class="region">Latin America</li>
+    {% if user.profile.organization == 'EC' or user.profile.organization == 'VFI' or user.profile.organization == 'LAR' %}
+    <li class="{% if 'ecuador' in request.path %}active{% endif %}"><a href="/viewer/ecuador">Ecuador</a></li>
+    {% endif %}
+    {% if user.profile.organization == 'HN' or user.profile.organization == 'VFI' or user.profile.organization == 'LAR' %}
+    <li class="{% if 'honduras' in request.path %}active{% endif %}"><a href="/viewer/honduras">Honduras</a></li>
+    {% endif %}
+  </ul>
+</div>
